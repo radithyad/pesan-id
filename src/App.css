@@ -1,0 +1,1354 @@
+/* reservasi */
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.reservasi {
+  width: 100%;
+  height: 100vh;
+  background-color: #FFD500;
+}
+
+.pesanin{
+  font-size: 30px;
+  font-weight: 700;
+  color: #faf9fb;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.pesanin span{
+  color: #fbff31;
+}
+
+.pesaninheader{
+  font-size: 25px;
+  font-weight: 650;
+  color: #000000;
+  text-align: center;
+  padding-top: 37px;
+  padding-bottom: 40px;
+}
+
+.pesaninheader span{
+  color: #fbff31;
+}
+
+.text {
+  color: #f8901c;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.text h3{
+  font-size: 35px;
+  font-weight: 750;
+}
+
+.rowContainerReservasiCard {
+  gap: 10vw;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.rowContainerReservasiCard::-webkit-scrollbar {
+  display: none;
+}
+
+.rowContainerReservasi {
+  gap: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+}
+
+.rowContainerReservasi::-webkit-scrollbar {
+  display: none;
+}
+
+.reservasiCard {
+  width: 100%;
+}
+
+.rowReservasiCard {
+  width: 120px;
+  height: 130px;
+  border-radius: 10px;
+  background: #fff;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.rowReservasiCard:hover,
+.rowReservasiCard.active {
+  background: #f8901c;
+}
+
+.rowReservasiCard h3 {
+  font-size: 20px;
+  font-weight: 750;
+  color: #f8901c;
+  transition: 0.5s;
+  text-align: center;
+  margin: auto;
+}
+
+.rowReservasiCard:hover h3,
+.rowReservaiCard.active h3 {
+  color: #faf9fb;
+}
+
+.rowReservasiCard .loadMenu .MuiSvgIcon-root {
+  font-size: 14px !important;
+  color: #faf9fb;
+}
+
+.rowReservasiCard:hover .loadMenu .MuiSvgIcon-root,
+.rowReservasiCard.active .loadMenu .MuiSvgIcon-root {
+  color: #f8901c;
+}
+
+.buttondinein {
+  border: none;
+  width: 100px;
+  height: 110px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.buttontakeaway {
+  border: none;
+  width: 100px;
+  height: 110px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* payment */
+.rowContainerPayment {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+}
+.payment {
+  width: 400px;
+  height: calc(100% - 250px);
+  background-color: #faf9fb;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+} 
+.rightMenu {
+  width: 350px;
+  height: calc(100% - 55px);
+  background: #fff;
+  position: fixed;
+  right: 0;
+  top: 55px;
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  transform: translateX(200%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rightMenu.active {
+  transform: translateX(0%);
+  top: 70px;
+}
+
+/* PaymentCard */
+.paymentCard {
+  width: 30vw;
+  background-color: #faf9fb;
+  padding: 40px;
+  border-radius: 35px;
+}
+
+.pay {
+  background: #787a84;
+  border-radius: 10px;
+  padding: 4px 20px;
+  border: none;
+  margin-top: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* menu */
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: #faf9fb;
+  overflow-x: hidden;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  height: 60px;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  min-width: 40px;
+  width: 50px;
+}
+
+.inputBox {
+  background: #ffffff;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px 15px;
+  width: 120px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.inputBox .searchIcon {
+  color: #787a84;
+  font-size: 20px;
+}
+
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #787a84;
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shoppingCart {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shoppingCart .cart {
+  font-size: 30px;
+  color: #373848;
+}
+
+.shoppingCart .cart_content {
+  width: 20px;
+  height: 20px;
+  background: #f8901c;
+  border-radius: 100%;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: -8px;
+}
+
+.shoppingCart .cart_content p {
+  position: relative;
+  top: 9px;
+  font-weight: 500;
+  color: #faf9fb;
+}
+
+.shoppingCart .noCartItem {
+  display: none;
+}
+
+.toggleMenu {
+  transform: rotate(90deg);
+}
+
+.toggleMenu .toggleIcon {
+  color: #373848;
+  font-size: 30px !important;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 60px;
+}
+
+.leftMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background: #d5d5d5;
+  border-radius: 25px 25px 0px 0px;
+  z-index: 101;
+}
+
+.leftMenu ul {
+  display: flex;
+}
+
+.leftMenu ul li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+.leftMenu ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.leftMenu ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 70px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.leftMenu ul li a .icon .MuiSvgIcon-root {
+  font-size: 26px;
+  color: #373848;
+}
+
+.leftMenu ul li.active a .icon {
+  transform: translateY(-26px);
+}
+
+.leftMenu ul li.active a .icon .MuiSvgIcon-root {
+  color: #faf9fb;
+  transition: 0.5s;
+}
+
+.indicator {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background: #f8901c;
+  top: -50%;
+  border-radius: 50%;
+  border: 6px solid #faf9fb;
+  transition: 0.5s;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border-top-right-radius: 18px;
+  box-shadow: 0px -10px 0 0 #faf9fb;
+}
+
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border-top-left-radius: 18px;
+  box-shadow: 0px -10px 0 0 #faf9fb;
+}
+
+.leftMenu ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(60px * 0));
+}
+
+.leftMenu ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(60px * 1));
+}
+
+.leftMenu ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(60px * 2));
+}
+
+.leftMenu ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(60px * 3));
+}
+
+.leftMenu ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(60px * 4));
+}
+
+.leftMenu ul li:nth-child(6).active ~ .indicator {
+  transform: translateX(calc(60px * 5));
+}
+
+.mainContainer {
+  width: 100%;
+  height: auto;
+  background: #faf9fb;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+
+.banner {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  background: url("https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fbanner.png?alt=media&token=7e244d84-8821-477d-b273-4c9381a474fb")
+    no-repeat center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.deliveryPic {
+  position: absolute;
+  right: -60px;
+  bottom: -10px;
+  width: 240px;
+}
+
+.bannerContent {
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bannerContent h3 {
+  font-size: 18px;
+  width: 200px;
+  color: #989594;
+  margin: 5px 0;
+}
+
+.bannerContent h3 span {
+  color: #f8901c;
+  font-weight: 650;
+}
+
+.dishContainer {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.menuCard {
+  width: 100%;
+}
+
+.subMenuContianer,
+.viewAll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subMenuContianer h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2a2b3c;
+}
+
+.subMenuContianer .viewAll p {
+  font-size: 12px;
+  color: #f8901c;
+  font-weight: 400;
+}
+
+.subMenuContianer .viewAll i {
+  background: #f8901c;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.subMenuContianer .viewAll i .MuiSvgIcon-root {
+  font-size: 16px !important;
+  color: #faf9fb;
+}
+
+.Container {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.Container::-webkit-scrollbar {
+  display: none;
+}
+
+.rowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.rowContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.rowMenuCard {
+  width: 130px;
+  min-width: 80px;
+  height: 100px;
+  border-radius: 10px;
+  background: #fff;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.rowMenuCard:hover,
+.rowMenuCard.active {
+  background: #f8901c;
+}
+
+.rowMenuCard .imgBox {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.rowMenuCard:hover .imgBox,
+.rowMenuCard.active .imgBox {
+  background: #faf9fb;
+}
+
+.rowMenuCard .imgBox img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.rowMenuCard:hover .imgBox img,
+.rowMenuCard.active .imgBox img {
+  width: 80%;
+  height: 80%;
+  transition: 0.5s;
+}
+
+.rowMenuCard h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f8901c;
+  transition: 0.5s;
+}
+
+.rowMenuCard:hover h3,
+.rowMenuCard.active h3 {
+  color: #faf9fb;
+}
+
+.rowMenuCard .loadMenu {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: #f8901c;
+  transition: 0.5s;
+}
+
+.rowMenuCard:hover .loadMenu,
+.rowMenuCard.active .loadMenu {
+  background: #faf9fb;
+}
+
+.rowMenuCard .loadMenu .MuiSvgIcon-root {
+  font-size: 14px !important;
+  color: #faf9fb;
+}
+
+.rowMenuCard:hover .loadMenu .MuiSvgIcon-root,
+.rowMenuCard.active .loadMenu .MuiSvgIcon-root {
+  color: #f8901c;
+}
+
+.dishItemContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.itemCard {
+  width: 160px;
+  height: 180px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.isFavourite {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  transition: 0.5s;
+}
+
+.isFavourite .MuiSvgIcon-root {
+  font-size: 18px;
+  color: #ff000088;
+}
+
+.isFavourite.active .MuiSvgIcon-root {
+  color: #ff0000;
+  filter: drop-shadow(0px 0px 8px #ff0000);
+}
+
+.itemCard .imgBox {
+  position: absolute;
+  top: -10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemCard .imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.itemImg {
+  width: 60%;
+  position: absolute;
+  top: 0;
+}
+
+.itemContent {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  padding-top: 50px;
+  border-radius: 15px;
+}
+
+.itemContent .itemName {
+  font-size: 16px;
+}
+
+.itemContent .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemContent .bottom .rating .MuiSvgIcon-root {
+  font-size: 14px;
+}
+
+.itemContent .bottom .price {
+  font-size: 16px;
+}
+
+.itemContent .bottom .price span {
+  color: #f8901c;
+  font-size: 12px;
+}
+
+.itemContent .addToCart {
+  background: #f8901c;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.itemContent .addToCart .MuiSvgIcon-root {
+  color: #faf9fb;
+  font-size: 16px;
+}
+
+.orange {
+  color: #f8901c !important;
+}
+
+.gray {
+  color: #373848 !important;
+}
+
+.rightMenu {
+  width: 350px;
+  height: calc(100% - 55px);
+  background: #fff;
+  position: fixed;
+  right: 0;
+  top: 55px;
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  transform: translateX(200%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rightMenu.active {
+  transform: translateX(0%);
+  top: 70px;
+}
+
+.debitCardContainer {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.cardGroup {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.cardLogo,
+.cardChip,
+.card_number,
+.card_name,
+.card_from,
+.card_to,
+.card_ring {
+  position: absolute;
+}
+
+.cardLogo {
+  width: 60px;
+  top: 30px;
+  right: 30px;
+  height: auto;
+}
+
+.cardChip {
+  width: 40px;
+  top: 50px;
+  left: 30px;
+  height: auto;
+}
+
+.card_number,
+.card_from,
+.card_to,
+.card_name {
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.card_number {
+  left: 30px;
+  bottom: 60px;
+}
+
+.card_name {
+  font-size: 12px;
+  bottom: 30px;
+  left: 30px;
+}
+
+.card_from {
+  font-size: 12px;
+  bottom: 30px;
+  right: 90px;
+}
+
+.card_to {
+  bottom: 30px;
+  right: 30px;
+  font-size: 12px;
+}
+
+.card_ring {
+  height: 400px;
+  width: 400px;
+  border-radius: 100vw;
+  background: transparent;
+  border: 50px solid rgba(0, 0, 0, 0.1);
+  top: -250px;
+  right: -250px;
+  box-sizing: border-box;
+}
+
+.card_ring::after {
+  content: "";
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  border-radius: 100vw;
+  background: transparent;
+  border: 50px solid rgba(0, 0, 0, 0.1);
+  bottom: -415px;
+  right: -155px;
+  box-sizing: border-box;
+}
+
+.cartContainer {
+  width: 100%;
+  flex: 1;
+  min-width: 320px;
+  padding: 0px 10px;
+}
+
+.cartItems {
+  width: 100%;
+  min-height: 280px;
+  max-height: 320px;
+  margin-top: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.cartItems::-webkit-scrollbar {
+  display: none;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.cartItem .imgBox {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  background: #00ffc855;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.cartItem .imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cartItem .itemSection {
+  margin-left: 10px;
+}
+
+.cartItem .itemSection .itemName {
+  font-size: 16px;
+  color: #2a2b3c;
+}
+
+.cartItem .itemSection .itemQuantity {
+  font-size: 16px;
+  color: #2a2b3c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.cartItem .itemSection .itemQuantity span {
+  color: #f8901c;
+}
+
+.cartItem .itemSection .itemQuantity .quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 60px;
+}
+
+.cartItem .itemSection .itemQuantity .quantity .itemRemove {
+  color: #2a2b3c;
+  font-size: 24px;
+}
+
+.cartItem .itemSection .itemQuantity .quantity .itemAdd {
+  color: #2a2b3c;
+  font-size: 24px;
+}
+
+.cartItem .itemPrice {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2a2b3c;
+  margin-left: auto;
+}
+
+.cartItem .itemPrice .dolorSign {
+  font-size: 12px;
+  color: #f8901c;
+}
+
+.cartItem .itemPrice .itemPriceValue {
+  font-size: 16px;
+  color: #373848;
+}
+
+.totalSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 8px 5px 8px;
+  margin: 15px 0px;
+}
+
+.totalSection h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a2b3c;
+}
+
+.totalSection p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a2b3c;
+}
+
+.totalSection p span {
+  font-size: 14px;
+  color: #f8901c;
+}
+
+.checkOut {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+  background: #f8901c;
+  border-radius: 100vw;
+  color: #faf9fb;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.addSomeItem {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 425px) {
+  .inputBox {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .rowContainer {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .rightMenu.active {
+    top: 70px;
+  }
+}
+
+@media screen and (min-width: 715px) {
+  .rowContainer {
+    margin: 10px 70px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .bannerContent h3 {
+    font-size: 18px;
+    width: 400px;
+    margin-left: 20px;
+  }
+  
+  .bannerContent h3 span {
+    color: #f8901c;
+    font-weight: 650;
+  }
+  .rowContainer {
+    margin: 10px 150px;
+  }
+
+  .toggleMenu {
+    display: none;
+  }
+
+  .profileContainer .userName {
+    display: block;
+  }
+
+  .leftMenu {
+    left: 21%;
+    width: 40%;
+  }
+
+  .mainContainer {
+    width: calc(100% - 350px);
+  }
+  .banner {
+    height: 160px;
+  }
+
+  .deliveryPic {
+    bottom: -13px;
+    width: 278px;
+  }
+
+  .bannerContent h3 {
+    font-size: 24px;
+  }
+
+  .bannerContent p {
+    font-size: 15px;
+    margin: 12px 0;
+    width: unset;
+  }
+
+  .bannerContent a {
+    font-size: 16px;
+  }
+
+  main {
+    display: flex;
+  }
+  .mainContainer {
+    padding: 10px 30px;
+  }
+  .rightMenu {
+    position: fixed;
+    z-index: 1;
+    transform: translateX(0%);
+    padding: 20px 15px;
+  }
+  .itemCard {
+    width: 180px;
+    height: 200px;
+  }
+}
+
+
+/* payment */
+/* .reservasi {
+  width: 100%;
+  height: 100vh;
+  background-color: #FFD500;
+}
+
+.pesanin{
+  font-size: 30px;
+  font-weight: 700;
+  color: #faf9fb;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.pesanin span{
+  color: #fbff31;
+}
+
+.text {
+  color: #f8901c;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.text h3{
+  font-size: 35px;
+  font-weight: 750;
+}
+
+.rowContainerReservasiCard {
+  gap: 10vw;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.rowContainerReservasiCard::-webkit-scrollbar {
+  display: none;
+}
+
+.rowContainerReservasi {
+  gap: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+}
+
+.rowContainerReservasi::-webkit-scrollbar {
+  display: none;
+}
+
+.reservasiCard {
+  width: 100%;
+}
+
+.rowReservasiCard {
+  width: 120px;
+  height: 130px;
+  border-radius: 10px;
+  background: #fff;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.rowReservasiCard:hover,
+.rowReservasiCard.active {
+  background: #f8901c;
+}
+
+.rowReservasiCard h3 {
+  font-size: 20px;
+  font-weight: 750;
+  color: #f8901c;
+  transition: 0.5s;
+  text-align: center;
+  margin: auto;
+}
+
+.rowReservasiCard:hover h3,
+.rowReservaiCard.active h3 {
+  color: #faf9fb;
+}
+
+.rowReservasiCard .loadMenu .MuiSvgIcon-root {
+  font-size: 14px !important;
+  color: #faf9fb;
+}
+
+.rowReservasiCard:hover .loadMenu .MuiSvgIcon-root,
+.rowReservasiCard.active .loadMenu .MuiSvgIcon-root {
+  color: #f8901c;
+} */
+.container{
+  padding-top: 30px;
+  width: 45%;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.dropdown {
+    font-family: 'Poppins';
+    top: 10px;
+    color: #ffffff;
+}
+.dropdown span {
+    color: #ffffff;
+}
+.text{
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+.card{
+  border-radius: 15px;
+  height: 550px;
+  background-color: #ffff;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  border-style: solid;
+  border-color: #DADADA;
+}
+.head-card {
+  padding: 40px 30px;
+  padding-bottom: 10px;
+  line-height: 0.5;
+}
+.container-in-top{
+  width: 95%;
+  height: 300px;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  overflow-y: scroll;
+}
+.container-in-top::-webkit-scrollbar {
+  display: none;
+}
+.card-in{
+  border-radius: 15px;
+  height: 100px;
+  background-color: #ffff;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  border-style: solid;
+  border-color: #DADADA;
+}
+.body-card{
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+  padding: 15px;
+}
+.body-card h1{
+  font-size: 32px;
+}
+.body-card h5{
+  font-size: 15px;
+}
+.qty{
+  margin-left: 280px;
+}
+.add-menu{
+  margin-left: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+.add-menu h5{
+  font-size: 15px;
+}
+.container-in-bottom{
+  padding-top: 25px;
+  width: 95%;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.total{
+  border-radius: 15px;
+  height: 100px;
+  background-color: #ffff;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  border-style: solid;
+  border-color: #DADADA;
+}
+.content-total{
+  padding: 4px 15px;
+  font-family: 'Poppins', sans-serif;
+}
+.content-total h4{
+  font-size: 20px;
+}
+.content{
+  font-size: 25px;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
