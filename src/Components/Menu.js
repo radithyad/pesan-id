@@ -120,7 +120,7 @@ function Menu() {
   const dataQty = (qty, itemPrice, id, operand) => {
     console.log('cari barang  ',totalCart.findIndex((x => x.menuId === id)))
     setTmpCart({
-        orderId: 2,
+        orderId: 1,
         menuId: id,
         qty: qty
     })
